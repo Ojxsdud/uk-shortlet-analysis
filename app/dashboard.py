@@ -237,7 +237,7 @@ with t1:
                                f"<br>middle half £{float(r.p25):,.0f}–£{float(r.p75):,.0f}"
                                f"<br>{int(r.n):,} listings<extra></extra>")))
         st.plotly_chart(layout(fig, 300, "Nightly price (£)", "", legend=False),
-                        width="stretch")
+                        use_container_width=True)
         st.markdown(
             "<div class='note'>Dot is the median. The thick band is the middle half of "
             "listings; the thin line runs on to the 90th percentile. Edinburgh's typical "
@@ -258,7 +258,7 @@ with t1:
                 hovertemplate=f"<b>{LABEL[c]}</b><br>%{{x}} km out"
                               "<br>median £%{y:,.0f}<extra></extra>"))
         st.plotly_chart(layout(fig, 360, "Kilometres from the city centre",
-                               "Median nightly price (£)"), width="stretch")
+                               "Median nightly price (£)"), use_container_width=True)
         st.markdown(
             "<div class='note'>Each point is the median of listings in a 1 km ring. "
             "The steep fall in the first few kilometres is the centrality premium; "
@@ -316,7 +316,7 @@ with t2:
             fig.update_yaxes(type="category", showgrid=False,
                              tickfont=dict(color=INK, size=12))
             fig.update_xaxes(range=[0, float(nb.median_price.max())*1.22])
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
             st.markdown("<div class='note'>Neighbourhoods with fewer than 30 live "
                         "listings are excluded — with a handful of listings a single "
                         "mansion tops the table.</div>", unsafe_allow_html=True)
@@ -367,7 +367,7 @@ with t3:
         fig.update_xaxes(type="category", showgrid=False, range=[-0.72, 1.72],
                          tickfont=dict(color=INK, size=13.5))
         fig.update_yaxes(range=[-2, 104], ticksuffix="%")
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         st.markdown(
             f"<div class='note'>Both columns add to 100%. On the left, hosts are "
             f"sorted into bands by how many listings they hold; on the right, the "
@@ -393,7 +393,7 @@ with t3:
                 hovertemplate="Top %{x:.0f}% of listings<br>"
                               "take %{y:.0f}% of estimated revenue<extra></extra>"))
             st.plotly_chart(layout(fig, 400, "Share of listings, highest-earning first (%)",
-                                   "Share of estimated revenue (%)"), width="stretch")
+                                   "Share of estimated revenue (%)"), use_container_width=True)
             st.markdown(
                 "<div class='caveat'><b>How revenue is estimated.</b> Inside Airbnb's "
                 "calendar no longer publishes a rate for each night, so revenue here is "
@@ -413,7 +413,7 @@ with t3:
         st.dataframe(top[["rank", "host", "listings", "median_price"]]
                      .rename(columns={"listings": "live listings",
                                       "median_price": "median £/night"}),
-                     hide_index=True, width="stretch")
+                     hide_index=True, use_container_width=True)
         st.markdown("<div class='note'>Hosts are identified by a truncated id, not by "
                     "name. The names are in the public dataset; publishing them on a "
                     "dashboard serves no analytical purpose.</div>",
@@ -453,7 +453,7 @@ with t4:
                 hovertemplate=f"<b>{LABEL.get(row.city, row.city)}</b><br>"
                               "%{x}: %{y:,}<extra></extra>"))
         fig.update_yaxes(type="log")
-        st.plotly_chart(layout(fig, 400, "", "Listings (log scale)"), width="stretch")
+        st.plotly_chart(layout(fig, 400, "", "Listings (log scale)"), use_container_width=True)
         st.markdown(
             "<div class='note'>A log scale, so three very differently-sized cities "
             "share one axis and the <i>slope</i> is comparable. The steeper the fall, "
@@ -486,7 +486,7 @@ with t4:
         fig.update_xaxes(type="category", showgrid=False, range=[-0.7, 11.7],
                          tickfont=dict(color=INK_2, size=12))
         fig.update_yaxes(range=[-2, 104], ticksuffix="%")
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         w = load("weekend"); w = w[w.city == city]
         if not w.empty:
             w = w.iloc[0]

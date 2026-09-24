@@ -46,4 +46,6 @@ SELECT c.listing_id,
                                                    AS est_revenue
 FROM core.calendar c
 JOIN core.listings l USING (listing_id)
+-- Never-bookable listings would read as 100% occupied on every night.
+WHERE l.availability_365 > 0
 GROUP BY c.listing_id, l.city, l.neighbourhood;

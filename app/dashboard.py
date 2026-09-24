@@ -496,8 +496,11 @@ with t4:
                   dots=[ACCENTS['book'], NEUTRAL, RAMPS['book'][2]])
         st.markdown(
             "<div class='note'>Occupancy, not price — the calendar no longer publishes "
-            "nightly rates. A night counts as taken whether it was booked or blocked by "
-            "the host, so this is an upper bound.</div>", unsafe_allow_html=True)
+            "nightly rates. Listings with no availability at all are excluded: they read "
+            "as fully occupied on every night, which in London alone would have inflated "
+            "this figure by about 16 points. A night still counts as taken whether it was "
+            "booked or blocked by the host, so this remains an upper bound.</div>",
+            unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────── PRICE A LISTING
 with t5:

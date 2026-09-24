@@ -65,7 +65,7 @@ Then install:
 
 ```powershell
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 You should see `(venv)` at the start of your prompt. **Everything below assumes the

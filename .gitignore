@@ -1,0 +1,14 @@
+venv/
+.venv/
+data/raw/
+data/processed/
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# model artefacts ARE committed - the deployed app cannot train
+
+# The dashboard NEEDS these committed - they are small and the deployed app
+# has no database to query.
+!data/dashboard/
+!data/dashboard/*.parquet

@@ -1,0 +1,35 @@
+{
+  "cat": [
+    "city",
+    "neighbourhood",
+    "room_type",
+    "property_type"
+  ],
+  "num": [
+    "accommodates",
+    "bedrooms",
+    "beds",
+    "bathrooms",
+    "minimum_nights",
+    "number_of_reviews",
+    "rating",
+    "rating_cleanliness",
+    "rating_location",
+    "host_listings",
+    "amenity_count",
+    "centre_km"
+  ],
+  "bool": [
+    "is_superhost",
+    "has_wifi",
+    "has_aircon",
+    "has_free_parking",
+    "has_washer",
+    "has_dishwasher",
+    "has_hot_tub",
+    "has_self_checkin",
+    "has_workspace",
+    "pets_allowed",
+    "has_lift"
+  ]
+}
